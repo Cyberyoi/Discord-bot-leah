@@ -1,0 +1,43 @@
+!!!you need node to make this work!!!
+
+run npm install discord.js
+run npm install dotenv
+
+
+create a src folder then an index.js
+go into package json change "main": "index.js" to "main": "src/index.js"
+
+
+create a .env file (removed for security)
+then write: TOKEN = YOURTOKEN
+your file should look like this:
+//
+TOKEN = SJn2jkdsai24kfs.esif.234hjskasj
+// note! not a real token
+
+
+
+this has an outdated API do not download and use
+if you are using your pc as a server use the comand "node ." to run the bot
+
+
+
+written command tut:
+
+client.on(Events.ClientReady, (x) => {
+const nameOfComand =  new SlashCommandBuilder()
+    .setName ('Name people will see')
+    .setDescription('description people will see')
+
+     client.application.commands.create(create the command)
+
+}) // this is the setup of the command block and the start builder
+
+client.on('interactionCreate', (interaction) => {
+      if(!interaction.isChatInputCommand()) return //this checks if it was a command or just written
+
+    if(interaction.commandName === 'check if command was written') {
+        interaction.reply('what bot says back')
+    }
+}) // this is your command interaction block
+    client.login(process.env.TOKEN) // to make sure ur bot gets logged in
